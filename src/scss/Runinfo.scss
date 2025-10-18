@@ -1,86 +1,130 @@
 .Run-container {
-   font-family: 'Montserrat', sans-serif;
    display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   gap: 20px;
-   padding: 10px;
-   height: auto;
-   background: linear-gradient(to right, ivory, gray); 
+   flex-direction: row;
+   min-height: 600px;
+   background: linear-gradient(to right, ivory, gray);
 
-   .Run-text {
-      order: 1;
-      color: black;
+   // Left side - Image (50%)
+   .Run-image-side {
+      flex: 1;
+      min-width: 50%;
       display: flex;
-      flex-direction: column;
-      align-items: left; /* Aligns text to the left */
-      text-align: center; /* Ensures proper text alignment */
-      width: 100%; /* Full width for better spacing */
-      max-width: 500px;
-      padding: 10px;
-      margin-top:5px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
 
-      h1, h4, p {
-         padding: 30px;
-         line-height: 1.5;
-         text-align: left; /* Ensures all text aligns properly */
+      .Runimage {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         display: block;
       }
    }
 
-   .Runimage {
-      width: 100%; /* Full width of the container */
-      max-width: 500px;
-      height: auto;
-      object-fit: cover;
-      display: block;
-      margin-left: auto; /* Centers the image horizontally */
-      margin-right: auto;
-      border-radius: 0px;
-      order: 1; /* Image appears before the text */
-   }
-}
+       // Right side - Content (50%)
+       .Run-content-side {
+          flex: 1;
+          min-width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 80px;
+          color: black;
 
-.Location-container {
-   font-size: clamp(1rem, 2.5vw, 1.5rem);
-   width: 100%;
-   max-width: 500px;
-   margin: 20px auto;
-   padding: 10px;
-   text-align: left;
-   border-radius: 0px;
-
-   a {
-      color: black;
-      text-decoration: underline;
-      transition: color 0.5s ease;
-
-      &:hover {
-         color: gray;
+      h1 {
+         font-family: 'Bebas Neue', sans-serif;
+         font-size: clamp(4rem, 8vw, 7rem);
+         font-weight: 400;
+         margin-bottom: 30px;
+         line-height: 0.9;
+         letter-spacing: 0.02em;
+         text-transform: uppercase;
       }
+
+      .Run-description {
+         font-family: 'Space Grotesk', sans-serif;
+         font-size: clamp(1.125rem, 2vw, 1.375rem);
+         font-weight: 400;
+         line-height: 1.7;
+         margin-bottom: 40px;
+         color: #1a1a1a;
+      }
+
+          .Event-details {
+             margin-bottom: 30px;
+             font-family: 'Space Grotesk', sans-serif;
+
+             p {
+                margin-bottom: 16px;
+                font-size: clamp(1.0625rem, 1.5vw, 1.125rem);
+                line-height: 1.6;
+                font-weight: 400;
+
+                .bold-text {
+                   font-weight: 700;
+                   color: #000;
+                }
+             }
+          }
+
+          .Location-map {
+             width: 100%;
+             margin-top: 30px;
+             border-radius: 4px;
+             overflow: hidden;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+             iframe {
+                display: block;
+             }
+          }
    }
 }
 
-@media (max-width: 932px) {
+// Responsive design for tablets and mobile
+@media (max-width: 968px) {
    .Run-container {
       flex-direction: column;
-      padding: 10px;
-   }
+      min-height: auto;
 
-   .Run-text {
-      order: 2; /* Ensures text stays in correct order */
-      align-items: center; /* Centers text on smaller screens */
-      text-align: center;
-      padding: 10px;
-      width: 90%; /* Adjust width for responsiveness */
-   }
+      .Run-image-side {
+         height: 400px;
+         
+         .Runimage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+      }
 
-   .Runimage {
-      order: 1; /* Image remains first in mobile view */
-      width: 90%; /* Adjust width for smaller screens */
+      .Run-content-side {
+         padding: 40px 30px;
+      }
    }
+}
 
-   .Location-container {
-      width: 90%;
+@media (max-width: 640px) {
+   .Run-container {
+      .Run-image-side {
+         height: 300px;
+      }
+
+      .Run-content-side {
+         padding: 30px 20px;
+
+         h1 {
+            margin-bottom: 20px;
+         }
+
+         .Run-description {
+            margin-bottom: 30px;
+         }
+
+         .Event-details {
+            margin-bottom: 20px;
+         }
+      }
    }
 }

@@ -1,37 +1,56 @@
+import '../scss/Slideshow.scss';
+import React from "react";
 import slideshow1 from "../assets/images/slideshow1.png";
 import slideshow2 from "../assets/images/slideshow2.png";
+import slideshow3 from "../assets/images/slideshow3.png";
 import slideshow4 from "../assets/images/slideshow4.png";
 import slideshow5 from "../assets/images/slideshow5.png";
 import slideshow6 from "../assets/images/slideshow6.png";
 import slideshow7 from "../assets/images/slideshow7.png";
 import slideshow8 from "../assets/images/slideshow8.png";
-import slideshow3 from "../assets/images/slideshow3.png";
 import yogaphoto from "../assets/images/yogaphoto.jpg";
 import yogaphoto2 from "../assets/images/yogaphoto2.jpg";
-import '../scss/Slideshow.scss';
-import React, { useEffect } from "react";
 
 export function Slideshow() {
-  useEffect(() => {
-    // Dynamically add the script to the document
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src = "https://w.behold.so/widget.js";
-    document.head.appendChild(script);
-
-    // Cleanup: remove the script when the component unmounts
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  const photos = [
+    { src: slideshow1, alt: "Chilltown Street Club Event 1" },
+    { src: slideshow2, alt: "Chilltown Street Club Event 2" },
+    { src: slideshow3, alt: "Chilltown Street Club Event 3" },
+    { src: slideshow4, alt: "Chilltown Street Club Event 4" },
+    { src: slideshow5, alt: "Chilltown Street Club Event 5" },
+    { src: slideshow6, alt: "Chilltown Street Club Event 6" },
+    { src: slideshow7, alt: "Chilltown Street Club Event 7" },
+    { src: slideshow8, alt: "Chilltown Street Club Event 8" },
+    { src: yogaphoto, alt: "Yoga Session" },
+    { src: yogaphoto2, alt: "Yoga Session 2" },
+  ];
 
   return (
-    <div className="Slideshow-row">
-      <behold-widget feed-id="yPrI3ycyw7eSM2jQrwXm"></behold-widget>
-    </div>
-    
-    );
-  }
+    <section id="gallery" className="Slideshow-row">
+      <div className="gallery-container">
+        <h2 className="gallery-title">GALLERY</h2>
+        <p className="gallery-subtitle">
+          Follow us on{" "}
+          <a 
+            href="https://www.instagram.com/chilltownstreetclub/?hl=en" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="instagram-link"
+          >
+            @chilltownstreetclub
+          </a>
+        </p>
+        <div className="photo-grid">
+          {photos.map((photo, index) => (
+            <div key={index} className="photo-item">
+              <img src={photo.src} alt={photo.alt} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
   
 {/*     
             <div className="Slideshow-container">

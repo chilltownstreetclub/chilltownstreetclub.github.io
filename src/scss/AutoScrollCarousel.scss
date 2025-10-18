@@ -1,14 +1,18 @@
 .carousel-section {
     text-align: center; 
     background: linear-gradient(to right, ivory, gray);
+    padding: 40px 0;
   
     .carousel-title {
-      font-size: 1.25vw; 
-      font-weight: bold; 
-      color: #ffffff; 
-      margin-bottom: 15px; 
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 400; 
+      color: #000000; 
+      margin-bottom: 30px; 
       margin-top: 0px;
-      padding-top: 15px;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
   
     .carousel-container {
@@ -17,53 +21,54 @@
       width: 100%; 
       background: linear-gradient(to right, ivory, gray);
       padding-bottom: 15px;
+      
       .carousel {
         display: flex; 
         animation: scroll 20s linear infinite; 
         will-change: transform; 
+        
         .carousel-item {
           flex: 0 0 auto; 
           padding: 10px; 
+          
           img {
-            max-height: 10vh; /* Limits height to 10% of the viewport height */
-            max-width: 50%; /* Limits width to 50% of the viewport width */
-            width: auto; /* Ensures the aspect ratio is maintained */
-            height: auto; /* Ensures the aspect ratio is maintained */
-            object-fit: contain; /* Maintains the content's aspect ratio within the bounding box */
+            max-height: 10vh;
+            max-width: 50%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
           }
-
         }
       }
     }
     @media (max-width: 932px) {
       .carousel-section {
-          
           height: 10vh;
           overflow: hidden;
-           
       }
+      
       .carousel-title {
         font-size: 3vw; 
       }
-      .carousel-container .carousel .carousel-item img {
-        max-height: 3vh; /* Reduce height for smaller screens */
-        max-width: 80%; /* Allow the image to occupy up to 80% of its container width */
-        width: auto; /* Maintain aspect ratio */
-        height: auto; /* Maintain aspect ratio */
-        object-fit: contain; /* Keep the image within its bounding box */
-        margin: 0 auto; /* Center the image */
-        display: block; /* Ensures proper alignment */
-      }
       
-  }
+      .carousel-container .carousel .carousel-item img {
+        max-height: 3vh;
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
   // Keyframes for infinite scrolling
   @keyframes scroll {
-    from {
+    0% {
       transform: translateX(0);
     }
-    to {
-      transform: translateX(calc(-100% - 20px));
+    100% {
+      transform: translateX(-50%);
     }
   }
 

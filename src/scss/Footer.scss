@@ -45,12 +45,13 @@
   
 .footer-container {
   background-color: rgb(25, 24, 24);
-  padding: 0.5em; /* Reduce padding if needed */
+  padding: 2.5em 2em;
   width: 100%;
   text-align: center;
-  position: relative; /* Optional: adjust based on layout */
-  height: auto; /* Ensures height adjusts to content */
-  box-sizing: border-box; /* Include padding in width/height calculations */
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -58,32 +59,70 @@
     color: white;
     position: relative;
     z-index: 10;
-    margin-bottom: 1em; /* Adjusted for scalability */
-    text-decoration: none;
+    margin-bottom: 1em;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      font-weight: 600;
+      margin: 0.5em 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
   }
 
   .social-media-container {
-    .social-media-logo {
-      height: 3.5vw; /* Responsive scaling based on viewport width */
-      margin-top: 1em;
-    }
     display: flex;
-    justify-content: space-between;
-    padding: 0 5%; /* Using percentages for spacing */
+    justify-content: center;
+    gap: 2em;
+    padding: 0;
+    margin-bottom: 1.5em;
+    
+    .social-media-logo {
+      height: 40px;
+      width: 40px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
   }
 
   .donation-form-container {
     position: relative;
     z-index: 10;
-    margin-bottom: 1em; /* Adjusted for scalability */
-  }
-
-  .footer-container a.Donation\ Link {
-    color: white; 
-  }
-
-  .footer-container a.Donation\ Link:visited {
-    color: white; 
+    margin-bottom: 1em;
+    
+    .donation-link {
+      color: white;
+      text-decoration: underline;
+      transition: opacity 0.3s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+      
+      &:visited {
+        color: white;
+      }
+      
+      h4 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        font-weight: 600;
+        margin: 0.5em 0;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
   }
   @media (max-width: 932px) {
     h4{

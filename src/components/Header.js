@@ -13,8 +13,15 @@ export function Header() {
       
       <div className="wavy-text-container">
         <div className="wavy-text">
-          {"CHILL RUNNING CHILL RUNNING CHILL RUNNING".split("").map((letter, index) => (
-            <span key={index} style={{ "--i": index + 1 }}>
+          {"CHILL RUNNING CHILL RUNNING CHILL RUNNING CHILL RUNNING ".split("").map((letter, index) => (
+            <span key={index} className="wave-letter" style={{ '--i': index + 1 }}>
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
+        </div>
+        <div className="wavy-text" aria-hidden="true">
+          {"CHILL RUNNING CHILL RUNNING CHILL RUNNING CHILL RUNNING ".split("").map((letter, index) => (
+            <span key={`dup-${index}`} className="wave-letter" style={{ '--i': index + 1 }}>
               {letter === " " ? "\u00A0" : letter}
             </span>
           ))}

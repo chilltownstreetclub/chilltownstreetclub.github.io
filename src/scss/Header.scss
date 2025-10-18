@@ -1,4 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+// Global Typography System - Premium Font Stack
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Heading styles - Bebas Neue
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+}
+
+h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h3 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h4 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+}
 
 .nav-container {
     padding: 1px;
@@ -7,28 +51,26 @@
     flex: 1;
     background: linear-gradient(to right, black, gray);
 }
+
 .announcement-bar {
-    position: sticky; /* Keeps the bar at the top */
-    top: 0;
-    z-index: 10; /* Ensures it stays above other elements */
-    background-color: rgb(25, 24, 24); /* Transparent background */
-    color: #333;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: transparent;
     text-align: center;
-    padding:30px;
-    font-size: 16px; /* Adjusted font-size for better readability */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
-    display:flex;
+    padding: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Adds space between the logo and text */
-    margin: 0; /* Ensure no margin around the announcement bar */
+    gap: 10px;
 }
 
 .announcement-logo {
-    height: 130px; /* Adjust the size of the logo */
-    width:max-content;
+    height: clamp(80px, 10vw, 120px);
+    width: auto;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
 }
 
 .header-container {
@@ -50,36 +92,55 @@
     }
 
     .wavy-text-container {
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: 50;
         display: flex;
-        --gap: 20px;
-        display: flex;
-        gap: var(--gap);
-        width: 200%;
         white-space: nowrap;
 
         .wavy-text {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 5vw;
-            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400;
             color: white;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding-right: 0;
+            animation: scrollText 20s linear infinite;
+            will-change: transform;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             display: inline-block;
-            animation: Wave 10s cubic-bezier(0.44, 0, 0.58, 1) infinite;
+
+            .wave-letter {
+                position: relative;
+                display: inline-block;
+                animation: wave 2s ease-in-out infinite;
+                animation-delay: calc(0.1s * var(--i));
+            }
         }
     }
 
-    @keyframes Wave {
+    @keyframes scrollText {
         0% {
-            transform: translateX(100%) translateY(0);
-        }
-        50% {
-            transform: translateX(0) translateY(0);
+            transform: translateX(0);
         }
         100% {
-            transform: translateX(-100%) translateY(0);
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes wave {
+        0% {
+            transform: translateY(0px);
+        }
+        20% {
+            transform: translateY(-20px);
+        }
+        40%, 100% {
+            transform: translateY(0px);
         }
     }
 }
@@ -92,9 +153,38 @@
         right: 0;
         overflow: hidden;
     }
-    .announcement-logo{
-        width:50vh;
-        height:auto;
-
+    
+    .announcement-bar {
+        top: 20px;
+    }
+    
+    .announcement-logo {
+        height: clamp(60px, 12vw, 100px);
+        width: auto;
+    }
+    
+    .wavy-text-container {
+        bottom: 40px;
+        
+        .wavy-text {
+            font-size: clamp(2rem, 6vw, 4rem);
+            
+            .wave-letter {
+                animation: waveMobile 2s ease-in-out infinite;
+                animation-delay: calc(0.1s * var(--i));
+            }
+        }
+    }
+    
+    @keyframes waveMobile {
+        0% {
+            transform: translateY(0px);
+        }
+        20% {
+            transform: translateY(-10px);
+        }
+        40%, 100% {
+            transform: translateY(0px);
+        }
     }
 }

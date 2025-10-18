@@ -1,85 +1,130 @@
 .Spin-container {
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    height: auto;
-    background: linear-gradient(to right, ivory, gray);
+   display: flex;
+   flex-direction: row;
+   min-height: 600px;
+   background: linear-gradient(to right, ivory, gray);
 
-    .Spin-text {
-        order: 1;
-        color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-        padding: 10px;
-    
-        h1, h4, p {
-            padding: 30px;
-            line-height: 1.5;
-            text-align: left;
-        }
-    }
+   // Left side - Image (50%)
+   .Spin-image-side {
+      flex: 1;
+      min-width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
 
-    .SpinImage {
-        order: 1;
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-        object-fit: cover;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 0px;
-    }
+      .SpinImage {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         display: block;
+      }
+   }
+
+       // Right side - Content (50%)
+       .Spin-content-side {
+          flex: 1;
+          min-width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 80px;
+          color: black;
+
+      h1 {
+         font-family: 'Bebas Neue', sans-serif;
+         font-size: clamp(4rem, 8vw, 7rem);
+         font-weight: 400;
+         margin-bottom: 30px;
+         line-height: 0.9;
+         letter-spacing: 0.02em;
+         text-transform: uppercase;
+      }
+
+      .Spin-description {
+         font-family: 'Space Grotesk', sans-serif;
+         font-size: clamp(1.125rem, 2vw, 1.375rem);
+         font-weight: 400;
+         line-height: 1.7;
+         margin-bottom: 40px;
+         color: #1a1a1a;
+      }
+
+          .Event-details {
+             margin-bottom: 30px;
+             font-family: 'Space Grotesk', sans-serif;
+
+             p {
+                margin-bottom: 16px;
+                font-size: clamp(1.0625rem, 1.5vw, 1.125rem);
+                line-height: 1.6;
+                font-weight: 400;
+
+                .bold-text {
+                   font-weight: 700;
+                   color: #000;
+                }
+             }
+          }
+
+          .Location-map {
+             width: 100%;
+             margin-top: 30px;
+             border-radius: 4px;
+             overflow: hidden;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+             iframe {
+                display: block;
+             }
+          }
+   }
 }
 
-.Location-container {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 10px;
-    text-align: left;
-    border-radius:0px;
+// Responsive design for tablets and mobile
+@media (max-width: 968px) {
+   .Spin-container {
+      flex-direction: column;
+      min-height: auto;
 
-    a {
-        color: black;
-        text-decoration: underline;
-        transition: color 0.5s ease;
+      .Spin-image-side {
+         height: 400px;
+         
+         .SpinImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+      }
 
-        &:hover {
-            color: gray;
-        }
-    }
+      .Spin-content-side {
+         padding: 40px 30px;
+      }
+   }
 }
 
-@media (max-width: 932px) {
-    .Spin-container {
-        flex-direction: column;
-        padding: 10px;
-    }
+@media (max-width: 640px) {
+   .Spin-container {
+      .Spin-image-side {
+         height: 300px;
+      }
 
-    .Spin-text {
-        order: 2;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-        width: 90%;
-    }
+      .Spin-content-side {
+         padding: 30px 20px;
 
-    .SpinImage {
-        order: 1;
-        width: 90%;
-    }
+         h1 {
+            margin-bottom: 20px;
+         }
 
-    .Location-container {
-        width: 90%;
-    }
+         .Spin-description {
+            margin-bottom: 30px;
+         }
+
+         .Event-details {
+            margin-bottom: 20px;
+         }
+      }
+   }
 }

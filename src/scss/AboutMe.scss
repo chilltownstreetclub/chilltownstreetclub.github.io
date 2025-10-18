@@ -3,6 +3,7 @@
   height: 100vh;
   
   .cover-photo{
+      position: absolute;
       left: 0;
       right: 0;
       top: 0;
@@ -13,10 +14,11 @@
       z-index: 1;
   }
   p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     color: white;
-    font-size: 1.667vw;
-    line-height: 4.0vw;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.7;
     text-align: center;
     width: 40vw;
     
@@ -30,7 +32,7 @@
       right: 0;
       top: 0;
       bottom: 0;
-      background-color: rgba(46, 46, 46, 0.5); 
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
       z-index: 2; 
       .AboutMe-text{
         color: #fff;
@@ -39,12 +41,16 @@
         flex-direction: column;
         justify-content: space-evenly;
         
-        h1{
-          font-size: 3.333vw;
-          margin-bottom: 15px;
-          text-align: center;
-          font-family: 'Montserrat', sans-serif;
-      }
+          h1{
+              font-family: 'Bebas Neue', sans-serif;
+              font-size: clamp(4rem, 8vw, 7rem);
+              font-weight: 400;
+              margin-bottom: 20px;
+              text-align: center;
+              line-height: 0.9;
+              letter-spacing: 0.02em;
+              text-transform: uppercase;
+          }
     }
   }
   @media (max-width: 932px) {

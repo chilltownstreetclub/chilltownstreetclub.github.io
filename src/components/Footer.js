@@ -22,7 +22,7 @@ return (
         </a>
         </div>
         <div>
-        <a className="code-of-conduct" href="https://drive.google.com/file/d/1S0yarD4VzoqjqAvYp-KqdyAl892358Wb/view?pli=1" target="_blank">
+        <a className="code-of-conduct" href="https://drive.google.com/file/d/1S0yarD4VzoqjqAvYp-KqdyAl892358Wb/view?pli=1" target="_blank" rel="noopener noreferrer">
             <h4>CHILLTOWN STREET CLUB CODE OF CONDUCT</h4>
         </a>
         </div>
@@ -31,12 +31,12 @@ return (
 
     <div className="donation-form-container">
         <a 
-        className="Donation Link" 
+        className="donation-link" 
         href="https://www.zeffy.com/embed/donation-form/f0e22e47-7252-427f-8b56-e5321c8cebe1" 
-        target="_blank" 
-        style={{ textDecoration: 'none', color: 'white' }}
+        target="_blank"
+        rel="noopener noreferrer"
         >
-        <h4>Donation Link</h4>
+        <h4>DONATE NOW</h4>
         </a>
     </div>
     </div>
