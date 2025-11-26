@@ -4,7 +4,7 @@ import '../scss/AboutMe.scss';
 
 export function AboutMe() {
   return (
-    <div className='about-me-container'>
+    <div id="about" className='about-me-container'>
       <img 
         className="cover-photo" 
         src={Aboutcover} 

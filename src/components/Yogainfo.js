@@ -4,7 +4,7 @@ import '../scss/Yogainfo.scss';
 
 export function Yogainfo() {
     return (
-        <div className='Yoga-container'>
+        <div id="yoga" className='Yoga-container'>
             {/* Left side - Content */}
             <div className='Yoga-content-side'>
                 <h1>YOGA</h1>

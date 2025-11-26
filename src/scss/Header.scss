@@ -91,6 +91,18 @@ p {
         z-index: 1;
     }
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+        pointer-events: none;
+    }
+
     .wavy-text-container {
         position: absolute;
         bottom: 80px;
@@ -113,13 +125,6 @@ p {
             will-change: transform;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             display: inline-block;
-
-            .wave-letter {
-                position: relative;
-                display: inline-block;
-                animation: wave 2s ease-in-out infinite;
-                animation-delay: calc(0.1s * var(--i));
-            }
         }
     }
 
@@ -129,18 +134,6 @@ p {
         }
         100% {
             transform: translateX(-50%);
-        }
-    }
-
-    @keyframes wave {
-        0% {
-            transform: translateY(0px);
-        }
-        20% {
-            transform: translateY(-20px);
-        }
-        40%, 100% {
-            transform: translateY(0px);
         }
     }
 }
@@ -168,23 +161,6 @@ p {
         
         .wavy-text {
             font-size: clamp(2rem, 6vw, 4rem);
-            
-            .wave-letter {
-                animation: waveMobile 2s ease-in-out infinite;
-                animation-delay: calc(0.1s * var(--i));
-            }
-        }
-    }
-    
-    @keyframes waveMobile {
-        0% {
-            transform: translateY(0px);
-        }
-        20% {
-            transform: translateY(-10px);
-        }
-        40%, 100% {
-            transform: translateY(0px);
         }
     }
 }

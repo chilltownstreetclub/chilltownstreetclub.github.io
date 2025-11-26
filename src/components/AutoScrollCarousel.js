@@ -32,7 +32,7 @@ export function AutoScrollCarousel() {
   ];
 
   return (
-    <div className="carousel-section">
+    <div id="events" className="carousel-section">
       <h4 className="carousel-title">Partners</h4>
       <div className="carousel-container">
         <div className="carousel">

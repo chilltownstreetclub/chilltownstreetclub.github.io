@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@catho/quantum": "^9.31.1",
+    "@emailjs/browser": "^4.4.1",
     "@primer/react": "^36.27.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

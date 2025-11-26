@@ -4,7 +4,7 @@ import '../scss/Spin.scss';
 
 export function Spin() {
     return (
-        <div className='Spin-container'>
+        <div id="spin" className='Spin-container'>
             {/* Left side - Image */}
             <div className='Spin-image-side'>
                 <img

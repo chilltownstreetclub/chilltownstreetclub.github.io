@@ -4,7 +4,7 @@ import '../scss/Runinfo.scss';
 
 export function Runinfo() {
     return (
-        <div className='Run-container'>
+        <div id="run" className='Run-container'>
             {/* Left side - Image */}
             <div className='Run-image-side'>
                 <img
